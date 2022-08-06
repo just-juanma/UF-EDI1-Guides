@@ -13,7 +13,7 @@ The objective is to be able to demonstrate the weights of variables in memory, d
 
 ## ⬇️ How to Install and Run the Project <a name="howto"></a>
 
-To use the project, we debug it using Visual Studio 2022 Community in C/C++ language. We understand that depending on the version of this IDE there may be conflicts.
+To use the project, we debug it using Visual Studio 2022 Community in C/C++ language. I understand that depending on the version of this IDE there may be conflicts.
 
 ## ⚠️ Considerations <a name="considerations"></a>
 
