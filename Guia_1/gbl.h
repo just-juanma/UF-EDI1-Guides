@@ -1,10 +1,9 @@
 #define _CRT_SECURE_NO_WARNINGS
 
-/* Electrónica Digital 1
-Guía 1: Sistemas numéricos
-Nota: todos los ejercicios que consisten en el desarrollo de una función deben estar en un archivo
-separado con su correspondiente header.Además deben contar con un programa que pruebe el
-funcionamiento con diferentes valores de entrada. */
+/* Digital Electronics 1
+Guide 1: Numerical Systems
+Note: all exercises that consist in the development of a function must be in a separate file with its corresponding header. 
+They must also have a program that tests the operation with different input values. */
 
 #include <stdio.h>
 #include <stdint.h>
@@ -12,8 +11,8 @@ funcionamiento con diferentes valores de entrada. */
 #include <string.h>
 #include <math.h>
 
-void ejercicio1();
-void ejercicio2();
-void ejercicio3();
-void ejercicio4(); void imprimirBin8(int8_t num); void ejercicio3Modificado(); void imprimirBin16(int16_t num); void imprimirBin32(int32_t num);
-void ejercicio5(); int32_t binarioDecimal(char* cadena_numero);
+void exercise1();
+void exercise2();
+void exercise3();
+void exercise4(); void printBin8(int8_t num); void exercise3Modified(); void printBin16(int16_t num); void printBin32(int32_t num);
+void exercise5(); int32_t binaryDecimal(char* number_string);
