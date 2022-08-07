@@ -94,7 +94,7 @@ void exercise3Modified() {
 		for (i = 0; i < n1 - n2 + 1; i++) {
 			num[i] = n2 + i;
 			printf("Number [%d]: %d (decimal), %x (hexadecimal), %o (octal)", i, num[i], num[i], num[i]);
-			imprimirBin8(num[i]);
+			printBin8(num[i]);
 		}
 		free(num);
 	}
@@ -104,7 +104,7 @@ void exercise3Modified() {
 		for (i = 0; i < n2 - n1 + 1; i++) {
 			num[i] = n1 + i;
 			printf("Number [%d]: %d (decimal), %x (hexadecimal), %o (octal)", i, num[i], num[i], num[i]);
-			imprimirBin8(num[i]);
+			printBin8(num[i]);
 		}
 		free(num);
 	}
