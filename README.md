@@ -1,4 +1,4 @@
-# Guides-Universidad-Favaloro-EDI1-spanish-work
+# Guides-Universidad-Favaloro-EDI1
 
 ## 📋 Table of contents
 1. [Project Description](#description)
