@@ -6,6 +6,9 @@ int main(void) { // uncomment on the exercise you want to try, and comment on th
  // exercise3();
  //	exercise4();
  //	exercise5();
+ // /* exercise 6 first part */ int16_t var = 0x7FFF; exercise6(var); printf("There is no difference other than the printing format (hexadecimal or decimal)\n"); exercise6(++var); printf("In addition to increasing the value by 1, it happens that the signed int variable reaches its maximum range of positive values (2^15 - 1), then it makes a kind of 'flip' back to its smallest value\n");
+ // /* exercise 6 second part */ int16_t var = 0x0000; exercise6(var); printf("There is no difference other than the printing format (hexadecimal or decimal)\n"); exercise6(--var); printf("In addition to decreasing the value by 1, it happens that the unsigned int variable reaches its minimum range of values (0), then it makes a kind of 'flip' back to its largest value\n");
+
 	return 0;
 }
 
@@ -207,4 +210,12 @@ int32_t binaryDecimal(char* number_string) {
 		decimal += digit * pow(2, exponent--);
 	}
 	return decimal;
+}
+
+void exercise6(int16_t numberRepresent) { printEnterContent(numberRepresent); }
+
+void printEnterContent(int16_t numberRepresent) {
+	printf("16 bits signed int (hexa): %hx\n", numberRepresent);
+	printf("16 bits unsigned int: %hu\n", numberRepresent);
+	printf("16 bits signed int: %hd\n", numberRepresent);
 }
