@@ -8,7 +8,7 @@ int main(void) { // uncomment on the exercise you want to try, and comment on th
  //	exercise5();
  // /* exercise 6 first part */ int16_t var = 0x7FFF; exercise6(var); printf("There is no difference other than the printing format (hexadecimal or decimal)\n"); exercise6(++var); printf("In addition to increasing the value by 1, it happens that the signed int variable reaches its maximum range of positive values (2^15 - 1), then it makes a kind of 'flip' back to its smallest value\n");
  // /* exercise 6 second part */ int16_t var = 0x0000; exercise6(var); printf("There is no difference other than the printing format (hexadecimal or decimal)\n"); exercise6(--var); printf("In addition to decreasing the value by 1, it happens that the unsigned int variable reaches its minimum range of values (0), then it makes a kind of 'flip' back to its largest value\n");
-
+ // exercise7();
 	return 0;
 }
 
@@ -215,7 +215,69 @@ int32_t binaryDecimal(char* number_string) {
 void exercise6(int16_t numberRepresent) { printEnterContent(numberRepresent); }
 
 void printEnterContent(int16_t numberRepresent) {
-	printf("16 bits signed int (hexa): %hx\n", numberRepresent);
-	printf("16 bits unsigned int: %hu\n", numberRepresent);
-	printf("16 bits signed int: %hd\n", numberRepresent);
+	printf("16 bits unsigned int (hexa): %hx\n", numberRepresent);
+	printf("16 bits unsigned int (decimal): %hu\n", numberRepresent);
+	printf("16 bits signed int (decimal): %hd\n", numberRepresent);
+}
+
+void exercise7() {
+	uint16_t num1 = 0x800, num2 = 0x0001, resul = num1 - num2;
+	printf("num1 16 bits unsigned int (hexa): %hx\n", num1);
+	printf("num1 16 bits unsigned int (decimal): %hu\n", num1);
+	printf("num1 16 bits signed int (decimal): %hd\n", num1);
+	
+	printf("num2 16 bits unsigned int (hexa): %hx\n", num2);
+	printf("num2 16 bits unsigned int (decimal): %hu\n", num2);
+	printf("num2 16 bits signed int (decimal): %hd\n", num2);
+	
+	printf("resul 16 bits unsigned int (hexa): %hx\n", resul);
+	printf("resul 16 bits unsigned int (decimal): %hu\n", resul);
+	printf("resul 16 bits signed int (decimal): %hd\n", resul);
+
+	printf("There is no overflow, and the easiest way to realize this is that it makes sense to perform the operation 248 - 1 = 247. Another reason may be that the range of values of a uint16_t in the result variable is not exceeded\n");
+
+	num1 = 0x7FFF; resul = num1 + num2;
+	printf("num1 16 bits unsigned int (hexa): %hx\n", num1);
+	printf("num1 16 bits unsigned int (decimal): %hu\n", num1);
+	printf("num1 16 bits signed int (decimal): %hd\n", num1);
+
+	printf("num2 16 bits unsigned int (hexa): %hx\n", num2);
+	printf("num2 16 bits unsigned int (decimal): %hu\n", num2);
+	printf("num2 16 bits signed int (decimal): %hd\n", num2);
+
+	printf("resul 16 bits unsigned int (hexa): %hx\n", resul);
+	printf("resul 16 bits unsigned int (decimal): %hu\n", resul);
+	printf("resul 16 bits signed int (decimal): %hd\n", resul);
+
+	printf("In this case there was an overflow, and the reason is that it exceeds the limit of a 16 - bit signed integer(2 ^ 15 - 1 < 32767 + 1), so it returns to the lowest possible value (-2 ^ 15)\n");
+
+	num1 = 0xF000; num2 = 0xFF01; resul = num1 + num2;
+	printf("num1 16 bits unsigned int (hexa): %hx\n", num1);
+	printf("num1 16 bits unsigned int (decimal): %hu\n", num1);
+	printf("num1 16 bits signed int (decimal): %hd\n", num1);
+
+	printf("num2 16 bits unsigned int (hexa): %hx\n", num2);
+	printf("num2 16 bits unsigned int (decimal): %hu\n", num2);
+	printf("num2 16 bits signed int (decimal): %hd\n", num2);
+
+	printf("resul 16 bits unsigned int (hexa): %hx\n", resul);
+	printf("resul 16 bits unsigned int (decimal): %hu\n", resul);
+	printf("resul 16 bits signed int (decimal): %hd\n", resul);
+	
+	printf("There was no overflow, since it respects consistency of signs in its result, but doing its sums in binary (1111 0000 0000 0000 0000 + 1111 1111 1111 0000 0000 0001) we arrive at a carry. But, remember that in Complement of a 2 the carry is not taken into account\n");
+
+	num1 = 0x0011; num2 = 0xFF01; resul = num1 + num2;
+	printf("num1 16 bits unsigned int (hexa): %hx\n", num1);
+	printf("num1 16 bits unsigned int (decimal): %hu\n", num1);
+	printf("num1 16 bits signed int (decimal): %hd\n", num1);
+
+	printf("num2 16 bits unsigned int (hexa): %hx\n", num2);
+	printf("num2 16 bits unsigned int (decimal): %hu\n", num2);
+	printf("num2 16 bits signed int (decimal): %hd\n", num2);
+
+	printf("resul 16 bits unsigned int (hexa): %hx\n", resul);
+	printf("resul 16 bits unsigned int (decimal): %hu\n", resul);
+	printf("resul 16 bits signed int (decimal): %hd\n", resul);
+
+	printf("There was no overflow, since it respects the coherence of signs in its result, there is no carry or borrow when counting\n");
 }
