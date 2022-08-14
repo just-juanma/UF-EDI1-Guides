@@ -18,3 +18,5 @@ void exercise4(); void printBin8(int8_t num); void exercise3Modified(); void pri
 void exercise5(); int32_t binaryDecimal(char* number_string);
 void exercise6(int16_t numberRepresent); void printEnterContent(int16_t numberRepresent);
 void exercise7();
+void exercise8();
+void exercise10();
