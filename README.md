@@ -9,7 +9,7 @@
 
 ## 💻 Development of the guides <a name="description"></a>
 ### Guide 1
-The objective is to be able to demonstrate the weights of variables in memory, data types, printout formats, and pass-through from one base to another.
+The objective is to be able to demonstrate the weights of variables in memory, data types, printout formats, and pass-through from one base to another. In addition, the sum of signed binary numbers is taken into account. It is checked if a carry, borrow or overflow occurs.
 
 ## ⬇️ How to Install and Run the Project <a name="howto"></a>
 
