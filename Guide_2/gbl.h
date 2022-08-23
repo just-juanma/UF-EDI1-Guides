@@ -16,3 +16,5 @@ typedef struct fieldsFloat {
 void exercise1();
 void exercise2(int8_t num); void printBin8(int8_t num); void printBin16(int16_t num); void printBin32(int32_t num);
 fieldsFloat_t exercise3(float num); fieldsFloat_t printFieldsFloat(float num);
+void exercise4a(); void exercise4b(); void exercise4c(); void exercise4d(); void exercise4e();
+void exercise5();
