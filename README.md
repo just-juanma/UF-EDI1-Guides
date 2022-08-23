@@ -1,15 +1,15 @@
 # Guides-EDI1
 
 ## 📋 Table of contents
-1. [Project Description](#description)
+1. [Development of the guides](#description)
 2. [How to Install and Run the Project](#howto)
 3. [Considerations](#considerations)
 4. [License](#license)
 5. [References](#references)
 
-## 💻 Project Description <a name="description"></a>
-
-The objective is to be able to demonstrate the weights of variables in memory, data types, printout formats, and pass-through from one base to another.
+## 💻 Development of the guides <a name="description"></a>
+### Guide 1
+The objective is to be able to demonstrate the weights of variables in memory, data types, printout formats, and pass-through from one base to another. In addition, the sum of signed binary numbers is taken into account. It is checked if a carry, borrow or overflow occurs.
 
 ## ⬇️ How to Install and Run the Project <a name="howto"></a>
 
