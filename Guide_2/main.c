@@ -15,7 +15,8 @@ int main() {
 	//exercise4c();
 	//exercise4d();
 	//exercise4e();
-	exercise5();
+	//exercise5();
+	exercise6();
 	return 0;
 }
 
@@ -113,4 +114,30 @@ void exercise5() {
 	printf("Flank value (inverted): "); printBin32(LPC1769 ^ flankMask);  // if edge is 0, it will be 1. but, if the edge is 1, it will be 1
 	uint32_t PDNMask = 0x400;
 	printf("\nADC in low power mode: "); printBin32(LPC1769 & ~PDNMask); // 0 guaranteed
+}
+
+void exercise6() {
+	int32_t nError = turnOffBit(0x100000000, 4);
+	putchar('\n');
+	nError = turnOnBit(0x8000000, 5);
+}
+
+int32_t turnOffBit(uint32_t var, uint8_t nBit) {
+	uint32_t mask = 1 << sizeof(var) * 8 - nBit;
+	if (nBit <= 32) {
+		printBin32(var & ~mask);
+		return 0;
+	}
+	else
+		return 1;
+}
+
+int32_t turnOnBit(uint32_t var, uint8_t nBit) {
+	uint32_t mask = 1 << sizeof(var) * 8 - nBit;
+	if (nBit <= 32) {
+		printBin32(var | mask);
+		return 0;
+	}
+	else
+		return 1;
 }
