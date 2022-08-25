@@ -20,7 +20,7 @@ int main() {
 	return 0;
 }
 
-void exercise1() {
+void exercise1() {	
 	int16_t num1 = 0x00FF, num2 = 0x0012;
 	printf("num1: 0x%x\t  num2: 0x%x\tAnd operator result: 0x%x\t  Or operator result: 0x%x\t  Xor result: 0x%x\n", num1, num2, num1 & num2, num1 | num2, num1 ^ num2);
 	num1 = 0x005F; num2 = 0x00FA;
@@ -117,13 +117,14 @@ void exercise5() {
 }
 
 void exercise6() {
-	int32_t nError = turnOffBit(0x100000000, 4);
-	putchar('\n');
-	nError = turnOnBit(0x8000000, 5);
+	int32_t nError = turnOffBit(0x100000000, 4); putchar('\n');
+	nError = turnOnBit(0x8000000, 5); putchar('\n');
+	printf("State of bit n %d: %d", 3, consultBit(0x1555AAAA, 3)); putchar('\n');
+	nError = invertBit(0x1545508F, 13); putchar('\n');
 }
 
 int32_t turnOffBit(uint32_t var, uint8_t nBit) {
-	uint32_t mask = 1 << sizeof(var) * 8 - nBit;
+	uint32_t mask = 1 << sizeof(var) * 8 - nBit - 1;
 	if (nBit <= 32) {
 		printBin32(var & ~mask);
 		return 0;
@@ -133,9 +134,27 @@ int32_t turnOffBit(uint32_t var, uint8_t nBit) {
 }
 
 int32_t turnOnBit(uint32_t var, uint8_t nBit) {
-	uint32_t mask = 1 << sizeof(var) * 8 - nBit;
+	uint32_t mask = 1 << sizeof(var) * 8 - nBit - 1;
 	if (nBit <= 32) {
 		printBin32(var | mask);
+		return 0;
+	}
+	else
+		return 1;
+}
+
+uint32_t consultBit(uint32_t var, uint8_t nBit) {
+	uint32_t mask = sizeof(var) * 8 - nBit - 1;
+	if (nBit <= 32)
+		return (var >> mask) & 1;
+	else
+		return 1;
+}
+
+int32_t invertBit(uint32_t var, uint8_t nBit) {
+	uint32_t mask = 1 << sizeof(var) * 8 - nBit - 1;
+	if (nBit <= 32) {
+		printBin32(var ^ mask);
 		return 0;
 	}
 	else
