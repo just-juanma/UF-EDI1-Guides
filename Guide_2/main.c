@@ -8,7 +8,7 @@ int main() {
 	printf("Number: 0x%x\n", *(unsigned int*)&num);
 	printf("Sign: 0x%x\n", temp.sign);
 	printf("Exponent 0x%x\n", temp.exponent);
-	printf("Mantissa: 0x%x\n", temp.mantissa);	
+	printf("Mantissa: 0x%x\n", temp.mantissa);
 	*/
 	//exercise4a();
 	//exercise4b();
@@ -16,11 +16,12 @@ int main() {
 	//exercise4d();
 	//exercise4e();
 	//exercise5();
-	exercise6();
+	// exercise6();
+	exercise7();
 	return 0;
 }
 
-void exercise1() {	
+void exercise1() {
 	int16_t num1 = 0x00FF, num2 = 0x0012;
 	printf("num1: 0x%x\t  num2: 0x%x\tAnd operator result: 0x%x\t  Or operator result: 0x%x\t  Xor result: 0x%x\n", num1, num2, num1 & num2, num1 | num2, num1 ^ num2);
 	num1 = 0x005F; num2 = 0x00FA;
@@ -36,7 +37,7 @@ void exercise2(int8_t num) { printBin8(num); }
 
 void printBin8(int8_t num) {
 	int8_t mask = sizeof(num) * 8 - 1; // bitmask
-	while (mask >= 0) 
+	while (mask >= 0)
 		printf("%d", (num >> mask--) & 1); // I scroll the bit mask from left to right comparing its least significant bit with 1 (to know what to print)
 	// repeat this function for 16 and 32 bits
 }
@@ -159,4 +160,39 @@ int32_t invertBit(uint32_t var, uint8_t nBit) {
 	}
 	else
 		return 1;
+}
+
+void exercise7() {
+	uint32_t AD0CR = 0x300001;
+	printBin32(AD0CR); putchar('\n');
+	uint8_t estado = estadoAD(&AD0CR);
+	apagarAD(&AD0CR);
+	printBin32(AD0CR); putchar('\n');
+	encendidoAD(&AD0CR);
+	printBin32(AD0CR); putchar('\n');
+	AD0CR = 0x3000000;
+	estado = estadoDisparoAD(&AD0CR);
+}
+
+uint8_t estadoAD(uint32_t* registro) {
+	uint32_t mask = 1 << 21;
+	if ((mask & *registro) != 0)
+		return 1;
+	else
+		return 0;
+}
+
+void apagarAD(uint32_t* registro) {
+	uint32_t mask = 1 << 21;
+	*registro &= ~mask;
+}
+
+void encendidoAD(uint32_t* registro) {
+	uint32_t mask = 1 << 21;
+	*registro |= mask;
+}
+
+uint8_t estadoDisparoAD(uint32_t* registro) {
+	uint32_t mask = 0x7000000;
+	return (*registro & mask) >> 24;
 }

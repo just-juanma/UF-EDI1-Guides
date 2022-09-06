@@ -20,3 +20,4 @@ fieldsFloat_t exercise3(float num); fieldsFloat_t printFieldsFloat(float num);
 void exercise4a(); void exercise4b(); void exercise4c(); void exercise4d(); void exercise4e();
 void exercise5();
 void exercise6(); int32_t turnOffBit(uint32_t var, uint8_t nBit); int32_t turnOnBit(uint32_t var, uint8_t nBit); uint32_t consultBit(uint32_t var, uint8_t nBit); int32_t invertBit(uint32_t var, uint8_t nBit);
+void exercise7(); uint8_t estadoAD(uint32_t* registro); void apagarAD(uint32_t* resgistro); void encendidoAD(uint32_t* resgistro); uint8_t estadoDisparoAD(uint32_t* registro);
