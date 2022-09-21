@@ -54,7 +54,7 @@ void printBin32(int32_t num) {
 		printf("%d", (num >> mask--) & 1);
 }
 
-fieldsFloat_t exercise3(float num) { printFieldsFloat(num); }
+fieldsFloat_t exercise3(float num) { return printFieldsFloat(num); }
 
 fieldsFloat_t printFieldsFloat(float num) {
 	fieldsFloat_t temp;
