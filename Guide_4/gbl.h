@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-typedef enum { ROJO, VERDE } eColor;
+typedef enum { ROJA, VERDE } eColor;
 typedef enum { RESET, ESTADO_A, ESTADO_B, ESTADO_C } eEstado;
 typedef enum { INACTIVO, ACTIVO } eSensor;
 
