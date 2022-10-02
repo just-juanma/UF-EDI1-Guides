@@ -20,7 +20,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="driver.h" />
-    <ClInclude Include="examModel2022.c" />
+    <ClInclude Include="main.c" />
+    <ClInclude Include="mde.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="driver.c" />
+    <ClCompile Include="mde.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

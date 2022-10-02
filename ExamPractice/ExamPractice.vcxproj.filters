@@ -15,11 +15,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="examModel2022.c">
+    <ClInclude Include="main.c">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="driver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="mde.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="driver.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mde.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

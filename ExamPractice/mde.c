@@ -1,13 +1,6 @@
-#include "driver.h"
+#include "mde.h"
 
-int main() {
-	while (1)
-	{
-		mdeTanque();
-	}
-}
-
-void mdeTanque() {
+void mdeTanque(eEstado estado) {
 	switch (estado) {
 	case RESET:
 		estado = STANDBY;
