@@ -12,12 +12,12 @@ void CerrarValvulaAgua() {
 
 void ActivarMotorLavado() {
 	uint8_t mask = 0x1;
-	*registro_hardware &= ~(mask << 6);
+	*registro_hardware &= ~(mask << 5);
 }
 
 void ApagarMotorLavado() {
 	uint8_t mask = 0x1;
-	*registro_hardware |= (mask << 6);
+	*registro_hardware |= (mask << 5);
 }
 
 void ActivarMotorCentrifugado() {
