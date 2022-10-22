@@ -26,7 +26,7 @@ int main(int argc, char* argv[])
 {
    srand(time(NULL));
    dataQueue_t* FIFO = NULL;
-   int8_t data1 = rand() % 0x7E, data2 = rand() % 0x7E, data3 = rand() % 0x7E;
+   int8_t data1 = rand() % INT8_MAX, data2 = rand() % INT8_MAX, data3 = rand() % INT8_MAX;
    size_t n = 0;
    FIFO = generateQueue(&n);
    
@@ -72,7 +72,7 @@ void queue(int8_t node, dataQueue_t* FIFO, size_t* n)
 /// @param n size of FIFO
 void deque(dataQueue_t* FIFO, size_t* n) 
 {
-    int i = 0;
+    uint32_t i;
     for(i = 0; i < *n; i++) {
         (*FIFO).queue[i] = (*FIFO).queue[i + 1];
     }
