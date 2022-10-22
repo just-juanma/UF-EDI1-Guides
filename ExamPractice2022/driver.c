@@ -1,31 +1,31 @@
 #include "driver.h"
 
 void AbrirValvulaAgua() {
-	int8_t mask = 0x1;
+	uint8_t mask = 0x1;
 	*registro_hardware |= (mask << 7);
 }
 
 void CerrarValvulaAgua() {
-	int8_t mask = 0x0;
-	*registro_hardware &= (~mask << 7);
+	uint8_t mask = 0x1;
+	*registro_hardware &= ~(mask << 7);
 }
 
 void ActivarMotorLavado() {
-	int8_t mask = 0x0;
-	*registro_hardware &= (~mask << 6);
+	uint8_t mask = 0x1;
+	*registro_hardware &= ~(mask << 5);
 }
 
 void ApagarMotorLavado() {
-	int8_t mask = 0x1;
-	*registro_hardware |= (mask << 6);
+	uint8_t mask = 0x1;
+	*registro_hardware |= (mask << 5);
 }
 
 void ActivarMotorCentrifugado() {
-	int8_t mask = 0x3;
+	uint8_t mask = 0x3;
 	*registro_hardware |= mask;
 }
 
 void ApagarMotorCentrifugado() {
-	int8_t mask = 0x3;
+	uint8_t mask = 0x3;
 	*registro_hardware &= ~mask;
 }
