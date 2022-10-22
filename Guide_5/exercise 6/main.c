@@ -4,21 +4,21 @@
 #include <time.h>
 
 /*
-Implement a set of functions for handling a FIFO data queue of byte-sized variables.
-variables of byte size. Manage all the variables in the data queue from a
-data_queue_t structure. Create a test program that allows to enter and display data through the implemented functions.
+Implement a set of functions for handling a FIFO queue queue of byte-sized variables.
+variables of byte size. Manage all the variables in the queue queue from a
+data_queue_t structure. Create a test program that allows to enter and display queue through the implemented functions.
 */
 
 typedef struct {
-    int8_t beg;
-    int8_t end;
-    int8_t* data;
+    int8_t beg; // beginning value of queue
+    int8_t end; // end value of queue
+    int8_t* queue; 
 
 } dataQueue_t;
 
 dataQueue_t* generateQueue(size_t* n);
-void addNode(int8_t node, dataQueue_t* FIFO, size_t* n);
-void eraseNode(dataQueue_t* FIFO, size_t* n);
+void queue(int8_t node, dataQueue_t* FIFO, size_t* n);
+void deque(dataQueue_t* FIFO, size_t* n);
 int8_t getBeg(dataQueue_t* FIFO);
 int8_t getEnd(dataQueue_t* FIFO);
 
@@ -30,13 +30,13 @@ int main(int argc, char* argv[])
    size_t n = 0;
    FIFO = generateQueue(&n);
    
-   addNode(data1, FIFO, &n);
+   queue(data1, FIFO, &n);
 
-   addNode(data2, FIFO, &n);
+   queue(data2, FIFO, &n);
 
-   addNode(data3, FIFO, &n);
+   queue(data3, FIFO, &n);
 
-   eraseNode(FIFO, &n);
+   deque(FIFO, &n);
     
     printf("Beginning node:\t%d\n", getBeg(FIFO));
     printf("End node:\t%d\n", getEnd(FIFO));
@@ -44,39 +44,52 @@ int main(int argc, char* argv[])
     exit(EXIT_SUCCESS);
 }
 
+/// @brief queue generation
+/// @param n size of FIFO
+/// @return FIFO pointer with dinamic array allocation
 dataQueue_t* generateQueue(size_t* n)
 {
-    dataQueue_t* FIFO = calloc((*n + 1), sizeof(dataQueue_t));
-    (*FIFO).data = calloc(++(*n), sizeof(int8_t));
+    dataQueue_t* FIFO = calloc(1, sizeof(dataQueue_t));
+    (*FIFO).queue = calloc(++(*n), sizeof(int8_t));
     return FIFO;
 }
 
-void addNode(int8_t node, dataQueue_t* FIFO, size_t* n)
+/// @brief add a node at the end of queue
+/// @param node node to add
+/// @param FIFO queue
+/// @param n size of FIFO
+void queue(int8_t node, dataQueue_t* FIFO, size_t* n)
 {
-   (*FIFO).data[*n - 1] = node;
+   (*FIFO).queue[*n - 1] = node;
    if(*n == 1)
        (*FIFO).beg = node;
    (*FIFO).end = node;
-   (*FIFO).data = realloc((*FIFO).data, ++(*n));
+   (*FIFO).queue = realloc((*FIFO).queue, ++(*n));
 }
 
-void eraseNode(dataQueue_t* FIFO, size_t* n) 
+/// @brief erase the first value of the queue
+/// @param FIFO queue
+/// @param n size of FIFO
+void deque(dataQueue_t* FIFO, size_t* n) 
 {
     int i = 0;
     for(i = 0; i < *n; i++) {
-        (*FIFO).data[i] = (*FIFO).data[i + 1];
+        (*FIFO).queue[i] = (*FIFO).queue[i + 1];
     }
-    (*FIFO).beg = *((*FIFO).data);
+    (*FIFO).beg = *((*FIFO).queue);
     if(*n == 1)
-         (*FIFO).end = *((*FIFO).data);
+         (*FIFO).end = *((*FIFO).queue);
     *n--;
 }
 
+
+/// @return beginning of queue
 int8_t getBeg(dataQueue_t* FIFO)
 {
     return (*FIFO).beg;
 }
 
+/// @return end of queue
 int8_t getEnd(dataQueue_t* FIFO)
 {
     return (*FIFO).end;
