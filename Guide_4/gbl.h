@@ -30,3 +30,17 @@ bool sensorAbierto(void);
 bool botonPresionado(void);
 
 #pragma endregion
+
+#pragma region Ejercicio 3
+// Un boton sin rebote es aquel que cuando lo presionamos, se queda presionado hasta que lo volvemos a presionar: SUELTO -> PRESIONADO
+// Un boton con rebote es aquel que cuando lo presionamos, vuelve a soltarse: SUELTO -> PRESIONADO -> SUELTO
+
+typedef enum { RESET, SUELTO, PRESIONADO, LEYENDO, LEIDO } eEstado3;
+typedef enum { PRESIONADO, SUELTO, LEIDO } eBoton;
+
+void ejercicio3(void);
+bool lecturaBoton(void); // indica si el boton se encuetra leido
+bool presionBoton(void);
+void setEstadoBoton(eBoton);
+
+#pragma endregion
