@@ -18,7 +18,7 @@ typedef struct {
 
 dataQueue_t* generateQueue(size_t* n);
 void queue(int8_t node, dataQueue_t* FIFO, size_t* n);
-void deque(dataQueue_t* FIFO, size_t* n);
+void dequeue(dataQueue_t* FIFO, size_t* n);
 int8_t getBeg(dataQueue_t* FIFO);
 int8_t getEnd(dataQueue_t* FIFO);
 
@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
 
    queue(data3, FIFO, &n);
 
-   deque(FIFO, &n);
+   dequeue(FIFO, &n);
     
     printf("Beginning node:\t%d\n", getBeg(FIFO));
     printf("End node:\t%d\n", getEnd(FIFO));
@@ -70,7 +70,7 @@ void queue(int8_t node, dataQueue_t* FIFO, size_t* n)
 /// @brief erase the first value of the queue
 /// @param FIFO queue
 /// @param n size of FIFO
-void deque(dataQueue_t* FIFO, size_t* n) 
+void dequeue(dataQueue_t* FIFO, size_t* n) 
 {
     uint32_t i;
     for(i = 0; i < *n; i++) {
