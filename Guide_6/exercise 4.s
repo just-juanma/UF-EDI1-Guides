@@ -1,4 +1,6 @@
-; Ejercicio 4
+; Implement a routine that loads into an array the codes of a counter ring of
+; module 8 using the shift instructions:
+; 00000001-00000001-00000010-000001000...up to 10000000.
 
 JMP start ; jump to start
 
