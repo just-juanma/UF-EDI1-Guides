@@ -1,0 +1,36 @@
+1. a. Enumerar 3 directivas del pre procesador, explicar su funcionamiento y mostrar un caso de ejemplo de uso para cada una
+
+Directiva - Ejemplo
+#include - #include <stdio.h>
+#define - #define N 5
+#ifndef, #if, #ifdef - 
+#ifndef CARGAR_ELEMENTOS 
+#define CARGAR_ELEMENTOS
+#endif
+
+1. b. Indica que la variable puede cambiar por eventos del hardware independientemente del flujo del programa, por ejemplo, por la escritura de un periférico.
+El compilador no hará optimizaciones con las variables definidas de este modo, y hará siempre referencia al mismo lugar de memoria para evitar duplicaciones que genere errores en la escritura dual de la misma variable.
+Ejemplo:
+volatile int id = 20;
+
+1. c.
+● Se definen y se utilizan como funciones normales, pero en la etapa de 
+compilación se reemplazan por el código de implementación de la misma.
+● Se utilizan para obtener las ventajas de uso y prolijidad de una función, pero 
+no sufrir overhead por el llamado a la función, por ejemplo, para no ocupar 
+mucho tiempo en un handler de interrupción.
+● Se utiliza una cantidad mayor de memoria de código a expensas de 
+velocidad de ejecución.
+● El compilador hace el reemplazo mientras le sea posible
+
+Ejemplo:
+
+int main(int argc, char** argv)  
+{
+	int32_t result = suma(2, 3);
+	return (EXIT_SUCCESS);
+}
+
+inline int32_t suma(int32_t a, int32_t b) {
+	return a + b;
+}
